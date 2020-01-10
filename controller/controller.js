@@ -10,7 +10,7 @@ class controller {
         res.send(message);
     }
 
-    greetingMessageController(req, res) {
+    createController(req, res) {
         let greetingData = {
             firstName: req.params.firstName,
             lastName: req.params.lastName,
