@@ -6,7 +6,7 @@ class controller {
     }
 
     helloWorldController(req, res) {
-        let message = service.messageService()
+        let message = service.messageService();
         res.send(message);
     }
 
@@ -14,7 +14,7 @@ class controller {
         let greetingData = {
             firstName: req.params.firstName,
             lastName: req.params.lastName,
-        }
+        };
         service.greetingMessageService(greetingData, (err, data) => {
             if (err) {
                 return res.status(400).send(err);
@@ -23,6 +23,20 @@ class controller {
             }
         })
     }
+
+    readController(req, res) {
+        let greetingData = {
+            id: req.params.id
+        };
+        service.readService(greetingData, (err, data) => {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                return res.status(200).send(data);
+            }
+        })
+    }
+
 }
 
 module.exports = new controller();

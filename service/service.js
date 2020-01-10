@@ -19,6 +19,19 @@ class Service {
             }
         })
     }
+
+    readService(req, callback) {
+        let findGreeting = {
+            "_id": req.id
+        };
+        model.read(findGreeting, (err, data) => {
+            if (err) {
+                return callback(err);
+            } else {
+                return callback(null, data);
+            }
+        })
+    }
 }
 
 module.exports = new Service();
