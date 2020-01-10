@@ -56,6 +56,19 @@ class Service {
             }
         });
     }
+
+    deleteGreetingsService(req, callback) {
+        let deleteGreeting = {
+            "_id": req.id
+        };
+        model.delete(deleteGreeting, (err, data) => {
+            if (err) {
+                return callback(err);
+            } else {
+                return callback(null, data);
+            }
+        });
+    }
 }
 
 module.exports = new Service();

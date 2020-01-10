@@ -44,6 +44,16 @@ class model {
             }
         })
     }
+
+    delete(req, callback) {
+        greetings.findByIdAndDelete(req, (err, data) => {
+            if (err) {
+                return callback({message: "Failed to delete greeting message", error: err})
+            } else {
+                return callback(null, {message: "Successfully deleted greeting!", result: data})
+            }
+        })
+    }
 }
 
 module.exports = new model();
