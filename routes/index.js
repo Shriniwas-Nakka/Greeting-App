@@ -9,5 +9,7 @@ router.delete('/welcomeMessage', controller.welcomeMessage);
 
 router.get('/helloWorld', controller.helloWorldController);
 
+router.get('/greetingMessage/:firstName/:lastName', controller.greetingMessage);
+
 
 module.exports = router;

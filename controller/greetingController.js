@@ -9,6 +9,16 @@ class greetingController {
         let message = service.messageService()
         res.send(message);
     }
+
+    greetingMessage(req, res) {
+        let message = {
+            firstName: req.params.firstName,
+            lastName: req.params.lastName,
+        };
+
+        let greetingMessage = service.greetingMessageService(message);
+        res.send(greetingMessage);
+    }
 }
 
 module.exports = new greetingController();
