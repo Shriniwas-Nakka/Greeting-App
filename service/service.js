@@ -1,10 +1,23 @@
+const model = require('../models/model');
+
 class Service {
     messageService() {
         return "Hello World!";
     }
 
-    greetingMessageService(req) {
-         return `Welcome ${req.firstName} ${req.lastName} to Greeting App!`;
+    greetingMessageService(req, callback) {
+        let greetingData = {
+            firstName: req.firstName,
+            lastName: req.lastName,
+            message: `Welcome ${req.firstName} ${req.lastName} to Greeting App!`
+        };
+        model.create(greetingData, (err, data) => {
+            if (err) {
+                return callback(err);
+            } else {
+                return callback(null, data);
+            }
+        })
     }
 }
 
