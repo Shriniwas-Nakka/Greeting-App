@@ -32,6 +32,16 @@ class Service {
             }
         })
     }
+
+    getAllGreetingsService(req, callback) {
+        model.read(req, (err, data) => {
+            if (err) {
+                return callback(err);
+            } else {
+                return callback(null, data);
+            }
+        })
+    }
 }
 
 module.exports = new Service();

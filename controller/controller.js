@@ -37,6 +37,16 @@ class controller {
         })
     }
 
+    getAllGreetingsController(req, res) {
+        let find = {};
+        service.getAllGreetingsService(find, (err, data) => {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                return res.status(400).send(data);
+            }
+        })
+    }
 }
 
 module.exports = new controller();

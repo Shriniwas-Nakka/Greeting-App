@@ -23,11 +23,14 @@ class model {
     }
 
     read(req, callback) {
-        greetings.findById(req, (err, data) => {
+        greetings.find(req, (err, data) => {
             if (err) {
                 return callback({message: "Failed to find greetings!", error: err})
             } else {
-                return callback(null, {message: "Greetings Found", result: data.message})
+                let greetingMessages = (data.map(o => {
+                    return o.message;
+                }));
+                return callback(null, {message: "Greetings Found", result: greetingMessages})
             }
         })
     }
