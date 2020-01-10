@@ -12,6 +12,7 @@ router.get('/helloWorld', controller.helloWorldController);
 router.post('/greetingMessage/:firstName/:lastName', controller.createController);
 router.get('/getGreeting/:id', controller.readController);
 router.get('/getGreetings', controller.getAllGreetingsController);
+router.put('/editGreetings/:id', controller.editGreetingsController);
 
 
 module.exports = router;

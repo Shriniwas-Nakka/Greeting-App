@@ -47,6 +47,20 @@ class controller {
             }
         })
     }
+
+    editGreetingsController(req, res) {
+        let editGreeting = {
+            id: req.params.id,
+            message: req.body.message
+        };
+        service.editGreetingsService(editGreeting, (err, data) => {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                return res.status(400).send(data);
+            }
+        });
+    }
 }
 
 module.exports = new controller();

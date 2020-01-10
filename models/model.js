@@ -34,6 +34,16 @@ class model {
             }
         })
     }
+
+    update(req, callback) {
+        greetings.updateOne(req.findId, req.updateMessage, (err, data) => {
+            if (err) {
+                return callback({message: "Failed to edit greeting message", error: err})
+            } else {
+                return callback(null, {message: "Successfully edited greeting!", result: data})
+            }
+        })
+    }
 }
 
 module.exports = new model();

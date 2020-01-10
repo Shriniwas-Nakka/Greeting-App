@@ -42,6 +42,20 @@ class Service {
             }
         })
     }
+
+    editGreetingsService(req, callback) {
+        let editGreeting = {
+            findId: {"_id": req.id},
+            updateMessage: {"message": req.message}
+        };
+        model.update(editGreeting, (err, data) => {
+            if (err) {
+                return callback(err);
+            } else {
+                return callback(null, data);
+            }
+        });
+    }
 }
 
 module.exports = new Service();
