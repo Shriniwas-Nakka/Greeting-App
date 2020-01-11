@@ -9,7 +9,7 @@ router.delete('/welcomeMessage', controller.welcomeMessage);
 
 router.get('/helloWorld', controller.helloWorldController);
 
-router.post('/greetingMessage/:firstName/:lastName', controller.createController);
+router.post('/greetingMessage/', controller.createController);
 router.get('/getGreeting/:id', controller.readController);
 router.get('/getGreetings', controller.getAllGreetingsController);
 router.put('/editGreetings/:id', controller.editGreetingsController);

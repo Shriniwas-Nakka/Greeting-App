@@ -12,8 +12,8 @@ class controller {
 
     createController(req, res) {
         let greetingData = {
-            firstName: req.params.firstName,
-            lastName: req.params.lastName,
+            firstName: req.query.firstName,
+            lastName: req.query.lastName,
         };
         service.greetingMessageService(greetingData, (err, data) => {
             if (err) {

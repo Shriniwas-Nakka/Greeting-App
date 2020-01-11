@@ -9,7 +9,7 @@ class Service {
         let greetingData = {
             firstName: req.firstName,
             lastName: req.lastName,
-            message: `Welcome ${req.firstName} ${req.lastName} to Greeting App!`
+            message: `${(req.firstName == undefined && req.lastName == undefined) ? "Hello World" : `Welcome ${(req.firstName == undefined) ? "" : req.firstName} ${(req.lastName == undefined) ? "" : req.lastName} to Greeting App!`}`
         };
         model.create(greetingData, (err, data) => {
             if (err) {
