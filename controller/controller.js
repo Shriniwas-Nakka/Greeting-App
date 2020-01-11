@@ -1,21 +1,12 @@
 let service = require('../service/service');
 
 class controller {
-    welcomeMessage(req, res) {
-        res.send("Welcome To Greeting App");
-    }
-
-    helloWorldController(req, res) {
-        let message = service.messageService();
-        res.send(message);
-    }
-
-    createController(req, res) {
+    createGreetingMessageController(req, res) {
         let greetingData = {
             firstName: req.query.firstName,
             lastName: req.query.lastName,
         };
-        service.greetingMessageService(greetingData, (err, data) => {
+        service.createGreetingMessageService(greetingData, (err, data) => {
             if (err) {
                 return res.status(400).send(err);
             } else {
@@ -24,11 +15,11 @@ class controller {
         })
     }
 
-    readController(req, res) {
+    readGreetingMessageController(req, res) {
         let greetingData = {
             id: req.params.id
         };
-        service.readService(greetingData, (err, data) => {
+        service.readGreetingMessageService(greetingData, (err, data) => {
             if (err) {
                 return res.status(400).send(err);
             } else {

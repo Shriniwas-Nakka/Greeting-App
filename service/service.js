@@ -1,11 +1,7 @@
 const model = require('../models/model');
 
 class Service {
-    messageService() {
-        return "Hello World!";
-    }
-
-    greetingMessageService(req, callback) {
+    createGreetingMessageService(req, callback) {
         let greetingData = {
             firstName: req.firstName,
             lastName: req.lastName,
@@ -20,7 +16,7 @@ class Service {
         })
     }
 
-    readService(req, callback) {
+    readGreetingMessageService(req, callback) {
         let findGreeting = {
             "_id": req.id
         };
